@@ -1,7 +1,7 @@
 # WhiskerAdder  
   
 Named for the XFCE Whisker Menu but should work on virtually any Linux Desktop Environment and distro.  
-Runs via command line and works for native or Windows applications.(CLI)  
+Runs via command line (CLI) and works for native or Windows applications.  
   
 Creates a "start menu" entry for a given program. It attempts to remove as much guesswork as possible  
 to get your entry added quickly and easily. If the program is an ".exe" Windows application,  
