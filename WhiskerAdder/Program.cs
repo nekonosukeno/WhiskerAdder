@@ -45,7 +45,9 @@ namespace WhiskerAdder
             else
             {
                 Console.WriteLine("Enter path to executable binary:");
-                LastArg = Console.ReadLine().Trim('\'');
+                LastArg = Console.ReadLine().Replace("\'", "");
+                if (LastArg.EndsWith(" ")) { LastArg = LastArg.TrimEnd(' '); }
+                Console.WriteLine(LastArg);
             }
             string ExeName = PathTool.FileName(LastArg);
             string GetPath = PathTool.rmName(LastArg);
@@ -63,6 +65,7 @@ namespace WhiskerAdder
             {
                 if (Directory.Exists(GetPath))
                 {
+                    Console.WriteLine(LastArg);
                     ErrMsg += $"\"{GetPath}\"{invlpth}\"{ExeName}\"{invlfile}";
                 }
                 else
@@ -136,7 +139,11 @@ namespace WhiskerAdder
                         ExtractIcon = true;
                     }
 
-                    if (!LastArg.EndsWith(".exe") && !LastArg.EndsWith(".EXE")) { Exec = Exec + LastArg; }
+                    if (!LastArg.EndsWith(".exe") && !LastArg.EndsWith(".EXE"))
+                    {
+                        string WriteExec = $"{GetPath}./{ExeName}";
+                        Exec += $"\'{WriteExec}\'";
+                    }
 
                     break;
                 case 2:
